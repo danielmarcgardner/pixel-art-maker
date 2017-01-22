@@ -42,7 +42,6 @@ palette.style.marginLeft = "5%";
 let cssNames = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
 
 
-
 //loop to create all colors
 for (var i = 0; i < cssNames.length; i++) {
   let colorCells = document.createElement('div');
@@ -58,14 +57,15 @@ for (var i = 0; i < cssNames.length; i++) {
   colorCells.addEventListener("click", function(){
     //sets color to click on
     color = currColor;
-    //sets current color selector information
+    // sets current color selector information
     currentColor.style.backgroundColor = color;
     currentColor.innerText = "Your current color is: "+color;
   })
-  //append palette to page
+  // append palette to page
   palette.append(colorCells);
 }
-//creates the current color cell at the bottom
+
+// creates the current color cell at the bottom
 let currentColor = document.createElement('div')
 currentColor.innerText = "Your current color is: "+color
 currentColor.style.height = "40px";
@@ -76,8 +76,7 @@ currentColor.style.float = "left";
 palette.append(currentColor);
 document.body.append(palette);
 
-
-//creates and adds the made by
+// creates and adds the made by
 let madeby = document.createElement('div');
 madeby.style.clear ="left";
 madeby.innerHTML= "<br><br><h2>Made by Daniel Gardner for Galvnize G42 ⚙️🏅👍</h2>";
