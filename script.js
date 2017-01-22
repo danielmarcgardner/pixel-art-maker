@@ -4,29 +4,68 @@ header.innerHTML = "Pixel Art Maker!";
 header.style.textAlign = "center";
 document.body.append(header);
 
+//Global variable for all color
+var color = 'white'
+
 let canvas = document.createElement("div");
-canvas.style.width = "50%";
-canvas.style.height = "50%";
+canvas.style.width = "600px";
+canvas.style.height = "600px";
 canvas.style.margin = "0% 25%"
+canvas.style.display = "inline-block"
 //for loop to append
-for (var i = 0; i < 324; i++) {
+for (var i = 0; i < 1764; i++) {
   let div = document.createElement('div')
   div.style.display = "block"
   div.style.border = "1px solid black"
   div.style.backgroundColor = "#ffffff"
-  div.style.height = "5%"
+  div.style.height = "2%"
   div.style.float = "left"
-  div.style.width = "5%"
+  div.style.width = "2%"
   div.innerHTML = "&nbsp;"
-  // div.innerHTML= "<div style='display:block; border: 1px solid black;background-color:#ffffff;height:5%;float:left;width:5%'>&nbsp;</div>";
   div.setAttribute("id", `div${i}`)
   div.addEventListener('click', function(){
     console.log(event.target)
+    this.style.backgroundColor = color;
   })
   canvas.append(div)
 }
 
 document.body.append(canvas)
-let blue = document.createElement('div');
-blue.innerHTML="<div style='display:block; border: 1px solid black;background-color:#ffffff;height:10%;clear:left;width:10%'>&nbsp;<p>'Click here for blue'</p></div>"
-document.body.append(blue);
+
+
+
+let palette = document.createElement('div')
+palette.style.marginLeft = "5%"
+
+
+let cssNames = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
+
+
+for (var i = 0; i < cssNames.length; i++) {
+  let colorCells = document.createElement('div');
+  let currColor = cssNames[i];
+  colorCells.style.backgroundColor = currColor;
+  colorCells.setAttribute("class", "colorSelectors")
+  colorCells.style.height = "40px";
+  colorCells.style.width = "100px";
+  colorCells.style.display = "inline-block";
+  colorCells.style.float = "left";
+  colorCells.style.border = "1px solid black";
+  colorCells.innerText = cssNames[i]
+  colorCells.addEventListener("click", function(){
+    color = currColor;
+  })
+  palette.append(colorCells);
+}
+
+document.body.append(palette);
+
+
+
+let madeby = document.createElement('div');
+madeby.style.clear ="left";
+madeby.innerHTML= "<br><br><h2>Made by Daniel Gardner for Galvnize G42 ⚙️🏅👍</h2>";
+document.body.append(madeby);
+
+
+//to make present color indicator set color=this.color.
