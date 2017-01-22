@@ -23,20 +23,20 @@ for (var i = 0; i < 1764; i++) {
   div.style.width = "2%"
   div.innerHTML = "&nbsp;"
   div.setAttribute("id", `div${i}`)
-  //
+  //event listener for pixels to change
   div.addEventListener('click', function(){
-    console.log(event.target)
+    console.log(event.target);
     this.style.backgroundColor = color;
   })
   //appending the pixels to the canvas
-  canvas.append(div)
+  canvas.append(div);
 }
 // append the canvas to the body
-document.body.append(canvas)
+document.body.append(canvas);
 
 //creating the color palette to hold all colors
-let palette = document.createElement('div')
-palette.style.marginLeft = "5%"
+let palette = document.createElement('div');
+palette.style.marginLeft = "5%";
 
 //all css named colors minus the duplicates for the greys
 let cssNames = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
@@ -54,14 +54,13 @@ for (var i = 0; i < cssNames.length; i++) {
   colorCells.style.display = "inline-block";
   colorCells.style.float = "left";
   colorCells.style.border = "1px solid black";
-  colorCells.innerText = cssNames[i]
+  colorCells.innerText = cssNames[i];
   colorCells.addEventListener("click", function(){
     //sets color to click on
     color = currColor;
     //sets current color selector information
     currentColor.style.backgroundColor = color;
-    currentColor.innerText = "Your current color is: "+color
-
+    currentColor.innerText = "Your current color is: "+color;
   })
   //append palette to page
   palette.append(colorCells);
@@ -74,9 +73,8 @@ currentColor.style.width = "600px";
 currentColor.style.display = "inline-block";
 currentColor.style.border = "1px solid black";
 currentColor.style.float = "left";
-palette.append(currentColor)
+palette.append(currentColor);
 document.body.append(palette);
-
 
 
 //creates and adds the made by
@@ -84,6 +82,3 @@ let madeby = document.createElement('div');
 madeby.style.clear ="left";
 madeby.innerHTML= "<br><br><h2>Made by Daniel Gardner for Galvnize G42 ⚙️🏅👍</h2>";
 document.body.append(madeby);
-
-
-//to make present color indicator set color=this.color.
