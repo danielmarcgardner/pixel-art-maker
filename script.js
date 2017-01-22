@@ -1,4 +1,4 @@
-
+//Creating the header for the page
 let header =document.createElement("h1");
 header.innerHTML = "Pixel Art Maker!";
 header.style.textAlign = "center";
@@ -6,13 +6,13 @@ document.body.append(header);
 
 //Global variable for all color
 var color = 'White'
-
+//creating the picture canvas
 let canvas = document.createElement("div");
 canvas.style.width = "600px";
 canvas.style.height = "600px";
 canvas.style.margin = "0% 25%"
 canvas.style.display = "inline-block"
-//for loop to append
+//for loop to append the pixels to the canvas
 for (var i = 0; i < 1764; i++) {
   let div = document.createElement('div')
   div.style.display = "block"
@@ -23,24 +23,27 @@ for (var i = 0; i < 1764; i++) {
   div.style.width = "2%"
   div.innerHTML = "&nbsp;"
   div.setAttribute("id", `div${i}`)
+  //
   div.addEventListener('click', function(){
     console.log(event.target)
     this.style.backgroundColor = color;
   })
+  //appending the pixels to the canvas
   canvas.append(div)
 }
-
+// append the canvas to the body
 document.body.append(canvas)
 
+//creating the color palette to hold all colors
 let palette = document.createElement('div')
 palette.style.marginLeft = "5%"
 
-
+//all css named colors minus the duplicates for the greys
 let cssNames = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
 
 
 
-
+//loop to create all colors
 for (var i = 0; i < cssNames.length; i++) {
   let colorCells = document.createElement('div');
   let currColor = cssNames[i];
@@ -53,14 +56,17 @@ for (var i = 0; i < cssNames.length; i++) {
   colorCells.style.border = "1px solid black";
   colorCells.innerText = cssNames[i]
   colorCells.addEventListener("click", function(){
+    //sets color to click on
     color = currColor;
+    //sets current color selector information
     currentColor.style.backgroundColor = color;
     currentColor.innerText = "Your current color is: "+color
 
   })
+  //append palette to page
   palette.append(colorCells);
 }
-
+//creates the current color cell at the bottom
 let currentColor = document.createElement('div')
 currentColor.innerText = "Your current color is: "+color
 currentColor.style.height = "40px";
@@ -73,7 +79,7 @@ document.body.append(palette);
 
 
 
-
+//creates and adds the made by
 let madeby = document.createElement('div');
 madeby.style.clear ="left";
 madeby.innerHTML= "<br><br><h2>Made by Daniel Gardner for Galvnize G42 ⚙️🏅👍</h2>";
