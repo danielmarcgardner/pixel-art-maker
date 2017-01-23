@@ -4,47 +4,54 @@ header.innerHTML = "Pixel Art Maker!";
 header.style.textAlign = "center";
 document.body.append(header);
 
-let instructions =document.createElement("h3");
+//Creating instructions
+let instructions = document.createElement("h3");
 instructions.innerHTML = "Click to start brush and double click to end brush stroke!";
 instructions.style.textAlign = "center";
 document.body.append(instructions);
-//Global variable for all color
+
+//Global variable for all color and mousedown
 var color = 'White'
 var mousedown = false;
+
 //creating the picture canvas
 let canvas = document.createElement("div");
 canvas.style.width = "600px";
 canvas.style.height = "600px";
 canvas.style.margin = "0% 25%"
 canvas.style.display = "inline-block"
+
 //for loop to append the pixels to the canvas
 for (var i = 0; i < 1764; i++) {
   let div = document.createElement('div')
-  div.style.display = "block"
-  div.style.border = "1px solid black"
-  div.style.backgroundColor = "#ffffff"
-  div.style.height = "2%"
-  div.style.float = "left"
-  div.style.width = "2%"
-  div.innerHTML = "&nbsp;"
-  div.setAttribute("id", `div${i}`)
-  //event listener for pixels to change
+  div.style.display = "block";
+  div.style.border = "1px solid black";
+  div.style.backgroundColor = "#ffffff";
+  div.style.height = "2%";
+  div.style.float = "left";
+  div.style.width = "2%";
+  div.innerHTML = "&nbsp;";
+  div.setAttribute("id", `div${i}`);
+  //event listener for pixels to start brush
   div.addEventListener('click', function(){
     console.log(event.target);
     this.style.backgroundColor = color;
     mousedown = true;
   })
+  //event listner for brush
   div.addEventListener('mouseenter', function(){
     if (mousedown){
       this.style.backgroundColor = color;
     }
   })
+  //event listener to end brush
 div.addEventListener('dblclick', function(){
   mousedown = false;
 })
   //appending the pixels to the canvas
   canvas.append(div);
 }
+
 // append the canvas to the body
 document.body.append(canvas);
 
@@ -81,7 +88,7 @@ for (var i = 0; i < cssNames.length; i++) {
 
 // creates the current color cell at the bottom
 let currentColor = document.createElement('div')
-currentColor.innerText = "Your current color is: "+color
+currentColor.innerText = "Your current color is: "+color;
 currentColor.style.height = "40px";
 currentColor.style.width = "600px";
 currentColor.style.display = "inline-block";
