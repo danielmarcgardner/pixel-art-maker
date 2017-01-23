@@ -4,8 +4,13 @@ header.innerHTML = "Pixel Art Maker!";
 header.style.textAlign = "center";
 document.body.append(header);
 
+let instructions =document.createElement("h3");
+instructions.innerHTML = "Click to start brush and double click to end brush stroke!";
+instructions.style.textAlign = "center";
+document.body.append(instructions);
 //Global variable for all color
 var color = 'White'
+var mousedown = false;
 //creating the picture canvas
 let canvas = document.createElement("div");
 canvas.style.width = "600px";
@@ -27,7 +32,16 @@ for (var i = 0; i < 1764; i++) {
   div.addEventListener('click', function(){
     console.log(event.target);
     this.style.backgroundColor = color;
+    mousedown = true;
   })
+  div.addEventListener('mouseenter', function(){
+    if (mousedown){
+      this.style.backgroundColor = color;
+    }
+  })
+div.addEventListener('dblclick', function(){
+  mousedown = false;
+})
   //appending the pixels to the canvas
   canvas.append(div);
 }
