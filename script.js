@@ -74,6 +74,8 @@ for (var i = 0; i < cssNames.length; i++) {
   colorCells.style.display = "inline-block";
   colorCells.style.float = "left";
   colorCells.style.border = "1px solid black";
+  colorCells.style.fontSize = "65%"
+  colorCells.style.textAlign = "center"
   colorCells.innerText = cssNames[i];
   colorCells.addEventListener("click", function(){
     //sets color to click on
